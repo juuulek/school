@@ -1,0 +1,21 @@
+POST http://localhost:8084/students
+Content-Type: application/json
+
+{
+  "name": "Mietek",
+  "clazzId": 2
+}
+###
+POST http://localhost:8084/students
+Content-Type: application/json
+
+{
+  "name": "Wiesiek",
+  "clazzId": 2
+}
+###
+GET http://localhost:8084/students
+###
+GET http://localhost:8084/students/2
+###
+GET http://localhost:8084/students/3
