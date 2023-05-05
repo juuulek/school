@@ -8,6 +8,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface StudentMapper {
+    @Mapping(source = "clazzId", target = "clazz.id")
     Student mapToEntity(StudentDto dto);
 
     @Mapping(source = "clazz.id", target = "clazzId")
