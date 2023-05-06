@@ -5,12 +5,13 @@ import com.example.school.Course.Course;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface StudentMapper {
     @Mapping(source = "clazzId", target = "clazz.id")
-//    @Mapping(source = "courseIds", target = "courses")
+    @Mapping(source = "courseIds", target = "courses")
     Student mapToEntity(StudentDto dto);
 
     @Mapping(source = "clazz.id", target = "clazzId")
@@ -19,7 +20,15 @@ public interface StudentMapper {
 
     List<StudentDto> mapToDto(List<Student> entities);
 
-    default Long mapToCourseIds(Course course) {
+    default Long mapToCourseId(Course course) {
         return course.getId();
+    }
+
+    default List<Course> mapToCourses(List<Long> courseIds) {
+        List<Course> courses = new ArrayList<>();
+        for (Long courseId : courseIds) {
+            courses.add(new Course(courseId));
+        }
+        return courses;
     }
 }
