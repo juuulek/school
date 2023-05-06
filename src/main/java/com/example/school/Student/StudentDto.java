@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,5 +18,5 @@ public class StudentDto {
     @NotNull
     private Long clazzId;
 
-    // many students to many courses
+    private List<Long> courseIds;
 }

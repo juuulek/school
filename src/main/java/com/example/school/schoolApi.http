@@ -23,3 +23,16 @@ GET http://localhost:8084/students/2
 
 ###
 GET http://localhost:8084/students/4
+
+###
+POST http://localhost:8084/students
+Content-Type: application/json
+
+{
+  "name": "Zbyszek",
+  "clazzId": 2,
+  "courseIds": [
+    2,
+    5
+  ]
+}
